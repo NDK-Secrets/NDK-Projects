@@ -7,3 +7,34 @@
 /build
 /captures
 .externalNativeBuild
+/.idea/
+/gradle.properties
+
+#Android generated
+bin
+gen
+lint.xml
+
+#Eclipse
+.project
+.classpath
+.settings
+.checkstyle
+
+#IntelliJ IDEA
+*.ipr
+*.iws
+classes
+gen-external-apklibs
+
+#Maven
+target
+release.properties
+pom.xml.*
+
+#Ant
+ant.properties
+local.properties
+proguard.cfg
+proguard-project.txt
+
