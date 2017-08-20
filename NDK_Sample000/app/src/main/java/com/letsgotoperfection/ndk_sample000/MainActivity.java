@@ -11,9 +11,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    // Example of a call to a native method
-    TextView tv = (TextView) findViewById(R.id.sample_text);
-    tv.setText(stringFromJNI());
+        // Example of a call to a native method
+        TextView tv = (TextView) findViewById(R.id.sample_text);
+        String s = stringFromJNI() + generateRandomNumber(100);
+        tv.setText(s);
     }
 
     /**
@@ -25,5 +26,12 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+    }
+
+
+    public native int generateRandomNumber(int max);
+
+    static {
+        System.loadLibrary("algorithms");
     }
 }
