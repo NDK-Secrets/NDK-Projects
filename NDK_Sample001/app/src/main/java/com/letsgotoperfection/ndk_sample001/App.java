@@ -11,6 +11,11 @@ import com.instabug.library.invocation.InstabugInvocationEvent;
  */
 
 public class App extends Application {
+    static {
+        System.loadLibrary("InstabugNdk");
+        System.loadLibrary("InstabugNdkCrashReporter");
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -18,6 +23,9 @@ public class App extends Application {
                 .build();
         Instabug.changeInvocationEvent(InstabugInvocationEvent.FLOATING_BUTTON);
         Bugsnag.init(this);
+        initInstabugNdk();
 
     }
+
+    public native void initInstabugNdk();
 }
