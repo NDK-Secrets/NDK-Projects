@@ -2,8 +2,6 @@ package com.letsgotoperfection.ndk_sample001;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -69,26 +67,29 @@ public class MainActivity extends AppCompatActivity implements AdapterTestsList.
         testsListView.setAdapter(adapterTestsList);
 
 
-        testsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, long id) {
-                String itemData = testsList.get(position);
-                Toast.makeText(MainActivity.this, itemData, Toast.LENGTH_LONG).show();
-                if (position == 6) {
-                    calculateSumJNI();
-                }
-            }
-        });
+//        testsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, final View view,
+//                                    int position, long id) {
+//                String itemData = testsList.get(position);
+//                Toast.makeText(MainActivity.this, itemData, Toast.LENGTH_LONG).show();
+////                if (position == 6) {
+////                    calculateSumJNI();
+////                }
+//            }
+//        });
     }
 
     @Override
     public void onTestViewClicked(int signal) {
         String itemData = testsList.get(signal);
         Toast.makeText(MainActivity.this, itemData, Toast.LENGTH_LONG).show();
-        if (signal == 6) {
-            calculateSumJNI();
-        }
+        raiseSignal(signal);
+//        if (signal == 6) {
+//            calculateSumJNI();
+//        }
     }
+
+    public native void raiseSignal(int signal);
 }

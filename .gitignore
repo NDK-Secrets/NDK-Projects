@@ -10,3 +10,6 @@ build/generated
 build/intermediates
 build/outputs
 build/tmp
+.idea/
+/.idea
+NDK_Sample001/.idea/misc.xml

@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <jni.h>
 #include <android/log.h>
+
 #define  LOG_TAG    "your-log-tag"
 
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
@@ -37,10 +38,16 @@ void InstabugNdkCrashReporter::init() {
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_letsgotoperfection_ndk_1sample001_App_initInstabugNdk(JNIEnv *env, jobject instance) {
-InstabugNdkCrashReporter instabugNdkCrashReporter;
-instabugNdkCrashReporter.init();
+    InstabugNdkCrashReporter instabugNdkCrashReporter;
+    instabugNdkCrashReporter.init();
 }
 
+
+JNIEXPORT void JNICALL
+Java_com_letsgotoperfection_ndk_1sample001_MainActivity_raiseSignal(
+        JNIEnv *env, jobject instance, jint signal) {
+    raise(signal);
+}
 
 
 //// Define the function to be called when ctrl-c (SIGINT) signal is sent to recipes
