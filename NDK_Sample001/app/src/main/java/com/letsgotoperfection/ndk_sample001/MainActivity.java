@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements AdapterTestsList.
     static {
         System.loadLibrary("native-lib");
         System.loadLibrary("algorithms");
+        System.loadLibrary("InstabugNdk");
+        System.loadLibrary("InstabugNdkCrashReporter");
+
     }
 
 //    Button btnCalculateSum;
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements AdapterTestsList.
     public void onTestViewClicked(int signal) {
         String itemData = testsList.get(signal);
         Toast.makeText(MainActivity.this, itemData, Toast.LENGTH_LONG).show();
-        raiseSignal(signal);
+        raiseSignal(++signal);
 //        if (signal == 6) {
 //            calculateSumJNI();
 //        }

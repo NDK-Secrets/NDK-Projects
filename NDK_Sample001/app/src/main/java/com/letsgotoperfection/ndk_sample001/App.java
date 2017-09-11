@@ -23,6 +23,7 @@ public class App extends Application {
                 .build();
         Instabug.changeInvocationEvent(InstabugInvocationEvent.FLOATING_BUTTON);
         Bugsnag.init(this);
+
         initInstabugNdk();
 
     }

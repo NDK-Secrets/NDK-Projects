@@ -50,14 +50,7 @@ public class AdapterTestsList extends ArrayAdapter<String> {
                     .LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.item_tests_list, parent, false);
             holder.btnTest = convertView.findViewById(btnTest);
-            holder.btnTest.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (listener != null) {
-                        listener.onTestViewClicked(position);
-                    }
-                }
-            });
+
             convertView.setTag(holder);
 
         } else {
@@ -65,7 +58,14 @@ public class AdapterTestsList extends ArrayAdapter<String> {
         }
 
         holder.btnTest.setText(testsList.get(position));
-
+        holder.btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null) {
+                    listener.onTestViewClicked(position);
+                }
+            }
+        });
         return convertView;
     }
 
