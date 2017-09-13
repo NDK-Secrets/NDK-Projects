@@ -1,1 +1,1 @@
-include ':NDK-algorithms'
+include ':NDK-algorithms', ':sample'
